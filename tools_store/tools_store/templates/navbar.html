@@ -1,0 +1,33 @@
+<style>
+    nav {
+        font-family: Arial, sans-serif;
+        font-palette: light;
+        background-color: darkgrey;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    button {
+      align-items: end;
+    }
+</style>
+<nav>
+  {% if user.is_authenticated %}
+    Hello, {{ user }}!
+    <div class="dropdown">
+<!--        <button class="btn btn-primary my-btn dropdown-toggle me-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--            {{ request.user.username }}-->
+<!--        </button>-->
+        <ul class="dropdown-menu dd-color">
+            <li><a class="dropdown-item dd-item-color" href="{% url 'logout' %}">Выйти</a></li>
+        </ul>
+    </div>
+{% else %}
+    <li class="nav-item">
+        <a class="nav-link btn btn-primary my-btn me-3" href="{% url 'login' %}">Войти</a>
+    </li>
+{% endif %}
+
+</nav>

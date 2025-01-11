@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tool Shop - Home</title>
+    <link type="text/css" href="{% static 'css/style_index.css' %}" rel="stylesheet"/>
+</head>
+<body>
+
+{% include 'navbar.html' %}
+
+<header>
+    <h1>Welcome to Tool Shop</h1>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<div class="hero">
+    <h1>Your One-Stop Tool Shop!</h1>
+</div>
+
+<div class="container">
+
+    <h2>Featured Products</h2>
+
+    <div class="product-card">
+        <h2>Hammer</h2>
+        <img class="icons_images" src="../static/assets/hammer.jpg" alt="Hammer">
+        <p>Price: $9.99</p>
+        <button>Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <h2>Screwdriver Set</h2>
+        <img class="icon_images" src="../static/assets/screwdriver.jpeg">
+        <p>Price: $19.99</p>
+        <button>Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <h2>Wrench</h2>
+        <img class="icon_images" src="../static/assets/wrench.jpeg">
+        <p>Price: $14.99</p>
+        <button>Add to Cart</button>
+    </div>
+
+    <h2 class="category-title">Shop by Category</h2>
+
+    <ul>
+        <li>Hand Tools</li>
+        <li>Power Tools</li>
+        <li>Gardening Tools</li>
+    </ul>
+
+    <div class="register-link">
+        <p>Register Here</p>
+        <a href="register/">Register Now</a>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2025 Tool Shop | Contact us at info@toolshop.com | Phone: (123) 456-7890</p>
+</footer>
+
+</body>
+</html>

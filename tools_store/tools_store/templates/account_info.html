@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Tool Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .profile-container {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .profile-info {
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+        }
+        .logout-button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+        .logout-button:hover {
+            background-color: #555; /* Darker shade on hover */
+        }
+    </style>
+</head>
+<body>
+
+<div class="profile-container">
+    <h2>User Profile</h2>
+    <div class="profile-info">
+        <label for="login">Login:</label>
+        <p id="login">john_doe</p>
+    </div>
+    <div class="profile-info">
+        <label for="email">Email:</label>
+        <p id="email">john_doe@example.com</p>
+    </div>
+    <div class="profile-info">
+        <label for="registration-date">Date of Registration:</label>
+        <p id="registration-date">January 1, 2023</p> <!-- Replace with actual registration date -->
+    </div>
+    <button class="logout-button" onclick="window.location.href='/logout';">Logout</button> <!-- Link to logout -->
+</div>
+
+</body>
+</html>
