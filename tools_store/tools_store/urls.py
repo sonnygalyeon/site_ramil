@@ -33,6 +33,7 @@ urlpatterns = [
     path('about/', views.about_view, name='about'),
     path('catalog/', views.catalog_view, name='catalog'),
     path('contact/', views.contact_view, name='contact'),
+    path('forgot/', views.forgot_password_view, name='forgot'),
 
     # Django Auth
     path('login/', auth_views.LoginView.as_view(template_name='login.html', next_page=''), name='login'),

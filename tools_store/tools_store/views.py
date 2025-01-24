@@ -74,3 +74,7 @@ def catalog_view(request):
 
 def contact_view(request):
     return render(request, "contacts.html")
+
+
+def forgot_password_view(request):
+    return render(request, "forgot.html")
