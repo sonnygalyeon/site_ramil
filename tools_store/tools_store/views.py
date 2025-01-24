@@ -15,36 +15,36 @@ from django.contrib.auth import login
 
 
 def register(request):
-    if request.method == 'POST':
-        form = RegisterUserForm(request.POST)
-        if form.is_valid():
-            user = form.save(commit=False)
-            user.set_password(form.cleaned_data['password'])
-            user.save()
-            messages.success(request, 'Your account has been created!')
-            return redirect('')  # Redirect to home page after registration
-    else:
-        form = RegisterUserForm()
+    # if request.method == 'POST':
+    #     form = RegisterUserForm(request.POST)
+    #     if form.is_valid():
+    #         user = form.save(commit=False)
+    #         user.set_password(form.cleaned_data['password'])
+    #         user.save()
+    #         messages.success(request, 'Your account has been created!')
+    #         return redirect('')  # Redirect to home page after registration
+    # else:
+    #     form = RegisterUserForm()
 
-    return render(request, 'register_user.html', {'form': form})
-
-
-class ProfileView(LoginRequiredMixin, TemplateView):
-    template_name = 'profile/profile.html'
+    return render(request, 'register_user.html')
 
 
-@login_required
-def logged_out(request):
-    if request.user.is_authenticated:
-        logout(request)
-        return redirect('/')
+# class ProfileView(LoginRequiredMixin, TemplateView):
+#     template_name = 'profile/profile.html'
+
+
+# @login_required
+# def logged_out(request):
+#     if request.user.is_authenticated:
+#         logout(request)
+#         return redirect('/')
 
 
 def index(request):
     return render(request, "index.html")
 
 
-def login(request):
+def login_view(request):
     return render(request, 'login.html')
 
 
@@ -62,3 +62,15 @@ def about_info(request):
 
 def register_user(request):
     return render(request, "register_user.html")
+
+
+def about_view(request):
+    return render(request, "about_info.html")
+
+
+def catalog_view(request):
+    return render(request, "catalog.html")
+
+
+def contact_view(request):
+    return render(request, "contacts.html")

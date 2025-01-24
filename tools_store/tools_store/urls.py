@@ -18,7 +18,7 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
-from .views import logged_out, index
+# from .views import logged_out, index
 from django.conf.urls.static import static
 
 from . import views
@@ -29,7 +29,10 @@ urlpatterns = [
     path('store/', views.store, name='store'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('register/', views.register, name='register'),
-    path('logout/', logged_out, name='logout'),
+    # path('logout/', logged_out, name='logout'),
+    path('about/', views.about_view, name='about'),
+    path('catalog/', views.catalog_view, name='catalog'),
+    path('contact/', views.contact_view, name='contact'),
 
     # Django Auth
     path('login/', auth_views.LoginView.as_view(template_name='login.html', next_page=''), name='login'),

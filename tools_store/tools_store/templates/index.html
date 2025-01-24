@@ -1,73 +1,244 @@
-{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tool Shop - Home</title>
-    <link type="text/css" href="{% static 'css/style_index.css' %}" rel="stylesheet"/>
+    <title>ToolMaster - Профессиональные инструменты</title>
+    <style>
+        :root {
+            --primary: #2A5D8A;
+            --accent: #FF6B35;
+            --light: #FFFFFF;
+            --dark: #1A2E40;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Навигация */
+        .nav {
+            background: var(--light);
+            padding: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        /* Герой-секция */
+        .hero {
+            background: linear-gradient(rgba(42,93,138,0.9), rgba(42,93,138,0.9)),
+                        url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7') center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light);
+            margin-top: 60px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Преимущества */
+        .features {
+            padding: 4rem 2rem;
+            background: #F8F9FA;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            font-size: 1.5rem;
+        }
+
+        /* Популярные товары */
+        .popular-products {
+            padding: 4rem 2rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: var(--light);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(42,93,138,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section {
+            background: var(--primary);
+            color: var(--light);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .cta-button {
+            background: var(--accent);
+            color: var(--light);
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255,107,53,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-
-{% include 'navbar.html' %}
-
-<header>
-    <h1>Welcome to Tool Shop</h1>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Products</a>
-        <a href="#">About Us</a>
-        <a href="#">Contact</a>
+    <nav class="nav">
+        <div class="nav-links">
+            <a href="" class="nav-link">Главная</a>
+            <a href="catalog/" class="nav-link">Каталог</a>
+            <a href="about/" class="nav-link">О нас</a>
+            <a href="contact/" class="nav-link">Контакты</a>
+        </div>
     </nav>
-</header>
 
-<div class="hero">
-    <h1>Your One-Stop Tool Shop!</h1>
-</div>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Профессиональные инструменты для мастеров</h1>
+            <p>Более 20 000 товаров от ведущих производителей</p>
+            <button class="cta-button">Перейти в каталог</button>
+        </div>
+    </section>
 
-<div class="container">
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3>Гарантия качества</h3>
+                <p>Все инструменты проходят строгий контроль</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-truck"></i></div>
+                <h3>Быстрая доставка</h3>
+                <p>Отправка заказов в день оформления</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-tools"></i></div>
+                <h3>Сервисное обслуживание</h3>
+                <p>Ремонт и поддержка оборудования</p>
+            </div>
+        </div>
+    </section>
 
-    <h2>Featured Products</h2>
+    <section class="popular-products">
+        <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary);">Хиты продаж</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" 
+                     alt="Дрель" 
+                     class="product-image">
+                <h3>Дрель ударная PRO 2000</h3>
+                <p style="color: var(--accent); font-size: 1.5rem; margin: 1rem 0;">12 990 ₽</p>
+                <button class="cta-button">В корзину</button>
+            </div>
+        </div>
+    </section>
 
-    <div class="product-card">
-        <h2>Hammer</h2>
-        <img class="icons_images" src="../static/assets/hammer.jpg" alt="Hammer">
-        <p>Price: $9.99</p>
-        <button>Add to Cart</button>
-    </div>
-
-    <div class="product-card">
-        <h2>Screwdriver Set</h2>
-        <img class="icon_images" src="../static/assets/screwdriver.jpeg">
-        <p>Price: $19.99</p>
-        <button>Add to Cart</button>
-    </div>
-
-    <div class="product-card">
-        <h2>Wrench</h2>
-        <img class="icon_images" src="../static/assets/wrench.jpeg">
-        <p>Price: $14.99</p>
-        <button>Add to Cart</button>
-    </div>
-
-    <h2 class="category-title">Shop by Category</h2>
-
-    <ul>
-        <li>Hand Tools</li>
-        <li>Power Tools</li>
-        <li>Gardening Tools</li>
-    </ul>
-
-    <div class="register-link">
-        <p>Register Here</p>
-        <a href="register/">Register Now</a>
-    </div>
-
-</div>
-
-<footer>
-    <p>&copy; 2025 Tool Shop | Contact us at info@toolshop.com | Phone: (123) 456-7890</p>
-</footer>
-
+    <section class="cta-section">
+        <h2>Остались вопросы?</h2>
+        <p style="margin: 1rem 0 2rem;">Наши специалисты всегда готовы помочь!</p>
+        <button class="cta-button">Связаться с нами</button>
+    </section>
 </body>
 </html>
