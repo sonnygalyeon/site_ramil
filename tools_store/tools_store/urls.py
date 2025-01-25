@@ -36,6 +36,6 @@ urlpatterns = [
     path('forgot/', views.forgot_password_view, name='forgot'),
 
     # Django Auth
-    path('login/', auth_views.LoginView.as_view(template_name='login.html', next_page=''), name='login'),
+    path('login/',views.login_view, name='login'),
 ] + static(settings.MEDIA_URL, document_root=settings.STATIC_ROOT)
 
